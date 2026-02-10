@@ -181,43 +181,45 @@ export default function BestXIView() {
   const filledCount = ALL_SLOTS.filter((s) => selections[s] !== null).length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-4 py-6 sm:py-10">
-      <div className="max-w-2xl mx-auto">
+    <div className="h-dvh flex flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-3 py-3 sm:py-6 sm:px-4 sm:h-auto sm:min-h-screen">
+      <div className="max-w-2xl mx-auto w-full flex flex-col flex-1 min-h-0 sm:block sm:flex-none">
         {/* Header */}
-        <div className="text-center mb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+        <div className="text-center mb-2 sm:mb-6 shrink-0">
+          <h1 className="text-lg sm:text-3xl font-bold text-white mb-0.5 sm:mb-2">
             Süper Lig İlk 11
           </h1>
-          <p className="text-slate-400 text-sm sm:text-base">
+          <p className="text-slate-400 text-xs sm:text-base">
             Tüm zamanların en iyi Süper Lig kadrosunu oluştur
           </p>
-          <p className="text-slate-500 text-xs mt-1">
+          <p className="text-slate-500 text-[10px] sm:text-xs mt-0.5 sm:mt-1">
             {filledCount}/11 oyuncu seçildi · Sürükle-bırak ile yer değiştir
           </p>
         </div>
 
-        {/* Pitch */}
-        <FootballPitch
-          ref={pitchRef}
-          selections={selections}
-          dragState={dragState}
-          onSlotPointerDown={handleSlotPointerDown}
-          onPitchPointerMove={handlePitchPointerMove}
-          onPitchPointerUp={handlePitchPointerUp}
-        />
+        {/* Pitch — flex-1 on mobile so it fills remaining space without overflow */}
+        <div className="flex-1 min-h-0 flex items-center justify-center sm:block">
+          <FootballPitch
+            ref={pitchRef}
+            selections={selections}
+            dragState={dragState}
+            onSlotPointerDown={handleSlotPointerDown}
+            onPitchPointerMove={handlePitchPointerMove}
+            onPitchPointerUp={handlePitchPointerUp}
+          />
+        </div>
 
         {/* Export button */}
-        <div className="flex justify-center mt-6 gap-3">
+        <div className="flex justify-center mt-2 sm:mt-6 gap-2 sm:gap-3 shrink-0 pb-1 sm:pb-0">
           <button
             onClick={handleExport}
             disabled={exporting}
-            className="bg-yellow-400 text-slate-900 px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-yellow-300 transition-colors shadow-lg shadow-yellow-400/20 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="bg-yellow-400 text-slate-900 px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm hover:bg-yellow-300 transition-colors shadow-lg shadow-yellow-400/20 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
           >
             {exporting ? "Kaydediliyor..." : "📷 Resmi Kaydet"}
           </button>
           <button
             onClick={() => setSelections(initialSelections)}
-            className="bg-slate-800 text-slate-300 px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-slate-700 transition-colors cursor-pointer"
+            className="bg-slate-800 text-slate-300 px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-semibold text-xs sm:text-sm hover:bg-slate-700 transition-colors cursor-pointer"
           >
             Sıfırla
           </button>

@@ -78,7 +78,7 @@ const FootballPitch = forwardRef<HTMLDivElement, FootballPitchProps>(
       <>
         <div
           ref={setRefs}
-          className="relative w-full max-w-[560px] mx-auto rounded-xl overflow-hidden shadow-2xl"
+          className="relative h-full sm:h-auto sm:w-full max-w-full sm:max-w-[560px] mx-auto rounded-xl overflow-hidden shadow-2xl"
           style={{ aspectRatio: "68 / 105", touchAction: "none" }}
           onPointerMove={onPitchPointerMove}
           onPointerUp={onPitchPointerUp}
