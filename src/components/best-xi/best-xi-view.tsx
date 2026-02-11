@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import Link from "next/link";
 import {
   FormationSlot,
   FormationSelections,
@@ -181,8 +182,18 @@ export default function BestXIView() {
   const filledCount = ALL_SLOTS.filter((s) => selections[s] !== null).length;
 
   return (
-    <div className="h-dvh flex flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-3 py-3 sm:py-6 sm:px-4 sm:h-auto sm:min-h-screen">
+    <div className="min-h-[100svh] flex flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-3 py-3 sm:py-6 sm:px-4 overflow-auto pb-[env(safe-area-inset-bottom)]">
       <div className="max-w-2xl mx-auto w-full flex flex-col flex-1 min-h-0 sm:block sm:flex-none">
+        {/* Nav */}
+        <div className="mb-2 shrink-0">
+          <Link
+            href="/"
+            className="text-slate-400 hover:text-yellow-400 text-sm transition-colors"
+          >
+            ← Ana Sayfa
+          </Link>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-2 sm:mb-6 shrink-0">
           <h1 className="text-lg sm:text-3xl font-bold text-white mb-0.5 sm:mb-2">

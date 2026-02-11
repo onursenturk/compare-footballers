@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { players } from "@/src/data/players";
 import PlayerSelect from "@/src/components/ui/player-select";
 import FootballerCard from "@/src/components/compare/footballer-card";
@@ -14,6 +15,16 @@ export default function CompareView() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 py-4 sm:py-10 px-3 sm:px-4">
+      {/* Nav */}
+      <div className="max-w-5xl mx-auto mb-4">
+        <Link
+          href="/"
+          className="text-slate-400 hover:text-yellow-400 text-sm transition-colors"
+        >
+          ← Ana Sayfa
+        </Link>
+      </div>
+
       {/* Header */}
       <div className="text-center mb-4 sm:mb-10">
         <h1 className="text-xl sm:text-4xl font-black text-white uppercase tracking-wider mb-1 sm:mb-2">
