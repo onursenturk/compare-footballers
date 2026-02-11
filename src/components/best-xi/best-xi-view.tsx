@@ -182,10 +182,10 @@ export default function BestXIView() {
   const filledCount = ALL_SLOTS.filter((s) => selections[s] !== null).length;
 
   return (
-    <div className="min-h-[100svh] flex flex-col bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-3 py-3 sm:py-6 sm:px-4 overflow-auto pb-[env(safe-area-inset-bottom)]">
-      <div className="max-w-2xl mx-auto w-full flex flex-col flex-1 min-h-0 sm:block sm:flex-none">
+    <div className="min-h-[100svh] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 px-3 py-3 sm:py-6 sm:px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+      <div className="max-w-2xl mx-auto w-full">
         {/* Nav */}
-        <div className="mb-2 shrink-0">
+        <div className="mb-2">
           <Link
             href="/"
             className="text-slate-400 hover:text-yellow-400 text-sm transition-colors"
@@ -195,7 +195,7 @@ export default function BestXIView() {
         </div>
 
         {/* Header */}
-        <div className="text-center mb-2 sm:mb-6 shrink-0">
+        <div className="text-center mb-2 sm:mb-6">
           <h1 className="text-lg sm:text-3xl font-bold text-white mb-0.5 sm:mb-2">
             Süper Lig İlk 11
           </h1>
@@ -207,8 +207,8 @@ export default function BestXIView() {
           </p>
         </div>
 
-        {/* Pitch — flex-1 on mobile so it fills remaining space without overflow */}
-        <div className="flex-1 min-h-0 flex items-center justify-center sm:block">
+        {/* Pitch */}
+        <div>
           <FootballPitch
             ref={pitchRef}
             selections={selections}
@@ -220,7 +220,7 @@ export default function BestXIView() {
         </div>
 
         {/* Export button */}
-        <div className="flex justify-center mt-2 sm:mt-6 gap-2 sm:gap-3 shrink-0 pb-1 sm:pb-0">
+        <div className="flex justify-center mt-2 sm:mt-6 gap-2 sm:gap-3">
           <button
             onClick={handleExport}
             disabled={exporting}
